@@ -6,11 +6,11 @@ const OVERLAY_MS = 2200; // durée d'affichage plein écran (ms)
 
 const levels = [
   {
-    title: "Niveau 1 — Le CV de Camille 🇮🇪",
+    title: "Niveau 1 — Le CV de Camille",
     badge: "Master de référence",
     permanentImage: "captureecran.jpg", // image permanente
     text: `
-      <p>Camille, mission : direction l’Irlande cet été ☘️</p>
+      <p>Camille-> direction l’Irlande cet été ☘️</p>
       <p class="hint">
         Première énigme :<br>
         <b>Quel est le master de référence de ton CV ?</b>
@@ -21,7 +21,7 @@ const levels = [
     afterImage: "1000010635.jpg" // plein écran après réussite
   },
   {
-    title: "Niveau 2 — 3 mois là-bas 😭",
+    title: "Niveau 2 : ",
     badge: "Plot twist",
     text: `
       <p class="hint">
@@ -56,8 +56,8 @@ const levels = [
       </p>
       <p>Entre la clé (1 mot).</p>
     `,
-    answer: ["reunion", "la reunion", "réunion", "la réunion"]
-    // (pas d'afterImage ici, tu peux en ajouter si tu veux)
+    answer: ["reunion", "la reunion", "réunion", "la réunion"],
+    afterImage: "1000010635.jpg"
   },
   {
     title: "🎉 Trésor trouvé !",
