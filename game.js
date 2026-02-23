@@ -1,5 +1,5 @@
 // Chasse au trésor - Camille / Irlande
-// + image permanente niveau 1 (captureecran.jpg)
+// + image permanente niveau 1 (acc.png)
 // + image plein écran quelques secondes après chaque étape réussie
 
 const OVERLAY_MS = 2200; // durée d'affichage plein écran (ms)
@@ -8,7 +8,7 @@ const levels = [
   {
     title: "Niveau 1 — Le CV de Camille",
     badge: "Master de référence",
-    permanentImage: "captureecran.jpg", // image permanente
+    permanentImage: "acc.png", // image permanente
     text: `
       <p>Camille-> direction l’Irlande cet été ☘️</p>
       <p class="hint">
