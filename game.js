@@ -13,7 +13,7 @@ const levels = [
       <p>Camille-> direction l’Irlande cet été ☘️</p>
       <p class="hint">
         Première énigme :<br>
-        <b>Quel est le master de référence de ton CV ?</b>
+        <b>Quel est le master de référence de ton CV ? (Ton talent caché)</b>
       </p>
       <p>Entre la clé (2 mots).</p>
     `,
@@ -21,7 +21,7 @@ const levels = [
     afterImage: "1000010635.jpg" // plein écran après réussite
   },
   {
-    title: "Niveau 2 : ",
+    title: "Niveau 2 : Un invité surprise",
     badge: "Plot twist",
     text: `
       <p class="hint">
@@ -31,7 +31,7 @@ const levels = [
       <p>Entre la clé (1 mot).</p>
     `,
     answer: "amoureux",
-    afterImage: "1000010633.png"
+    afterImage: "1000010632.png"
   },
   {
     title: "Niveau 3 — Le rêve ultime 🐴⛰️",
@@ -39,7 +39,7 @@ const levels = [
     text: `
       <p class="hint">
         Objectif final :<br>
-        <b>Ouvrir un ____ dans les montagnes de l’Irlande</b>
+        <b>Ouvrir un ____ sur les cote Irlandaise</b>
       </p>
       <p>Entre la clé (1 mot).</p>
     `,
@@ -52,7 +52,7 @@ const levels = [
     text: `
       <p class="hint">
         Dernière question : <b>Île de la Réunion ou Irlande ?</b><br>
-        (Indice : “Moi aussi je préfère la ____ pour élever le mioche.” 😄)
+        (Indice : “Moi aussi je préfère la ____ pour élever le mioche.” )
       </p>
       <p>Entre la clé (1 mot).</p>
     `,
@@ -66,7 +66,7 @@ const levels = [
       <p><b>BRAVO Camille</b> 🏆</p>
       <p>Tu as terminé la chasse au trésor version Irlande ☘️</p>
       <p class="hint">
-        <b>“Ranch en Irlande… mais la Réunion gagne (pour le mioche).”</b> 😄
+        <b>“Ranch en Irlande… mais la Réunion gagne (pour le mioche).”</b> 
       </p>
       <div class="row" style="margin-top:16px">
         <button id="restart">Recommencer</button>
