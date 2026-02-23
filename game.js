@@ -8,7 +8,7 @@ const levels = [
   {
     title: "Niveau 1 — Le CV de Camille 🇮🇪",
     badge: "Master de référence",
-    permanentImage: "assets/captureecran.jpg", // image permanente
+    permanentImage: "captureecran.jpg", // image permanente
     text: `
       <p>Camille, mission : direction l’Irlande cet été ☘️</p>
       <p class="hint">
@@ -18,7 +18,7 @@ const levels = [
       <p>Entre la clé (2 mots).</p>
     `,
     answer: "master clown",
-    afterImage: "assets/1000010635.jpg" // plein écran après réussite
+    afterImage: "1000010635.jpg" // plein écran après réussite
   },
   {
     title: "Niveau 2 — 3 mois là-bas 😭",
@@ -31,7 +31,7 @@ const levels = [
       <p>Entre la clé (1 mot).</p>
     `,
     answer: "amoureux",
-    afterImage: "assets/1000010633.png"
+    afterImage: "1000010633.png"
   },
   {
     title: "Niveau 3 — Le rêve ultime 🐴⛰️",
@@ -44,7 +44,7 @@ const levels = [
       <p>Entre la clé (1 mot).</p>
     `,
     answer: "ranch",
-    afterImage: "assets/1000010632.png"
+    afterImage: "Capture-écran-2026-02-23-164916.png"
   },
   {
     title: "Niveau 4 — Le grand choix 🌴 vs ☘️",
