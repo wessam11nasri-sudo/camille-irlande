@@ -26,11 +26,11 @@ const levels = [
     text: `
       <p class="hint">
         “Je vais m’ennuyer 3 mois toute seule là-bas…”<br>
-        Réponse : <b>Pas si mon ____ passe me voir</b>
+        Réponse : <b>Pas si mon ____ passe me voir (indice: penses à range)</b>
       </p>
       <p>Entre la clé (1 mot).</p>
     `,
-    answer: "amoureux",
+    answer: "dyslexique",
     afterImage: "1000010632.png"
   },
   {
@@ -43,7 +43,7 @@ const levels = [
       </p>
       <p>Entre la clé (1 mot).</p>
     `,
-    answer: "ranch",
+    answer: "range",
     afterImage: "Capture-écran-2026-02-23-164916.png"
   },
   {
