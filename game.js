@@ -18,7 +18,7 @@ const levels = [
       <p>Entre la clé (2 mots).</p>
     `,
     answer: "master clown",
-    afterImage: "1000010633.jpg" // plein écran après réussite
+    afterImage: "1000010633.png" // plein écran après réussite
   },
   {
     title: "Niveau 2 : Un invité surprise",
