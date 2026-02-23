@@ -1,10 +1,14 @@
 // Chasse au trésor - Camille / Irlande
-// Réponses en minuscules, sans accents si possible (pour éviter les erreurs de saisie).
+// + image permanente niveau 1 (captureecran.jpg)
+// + image plein écran quelques secondes après chaque étape réussie
+
+const OVERLAY_MS = 2200; // durée d'affichage plein écran (ms)
 
 const levels = [
   {
     title: "Niveau 1 — Le CV de Camille 🇮🇪",
     badge: "Master de référence",
+    permanentImage: "assets/captureecran.jpg", // image permanente
     text: `
       <p>Camille, mission : direction l’Irlande cet été ☘️</p>
       <p class="hint">
@@ -14,6 +18,7 @@ const levels = [
       <p>Entre la clé (2 mots).</p>
     `,
     answer: "master clown",
+    afterImage: "assets/1000010635.jpg" // plein écran après réussite
   },
   {
     title: "Niveau 2 — 3 mois là-bas 😭",
@@ -26,6 +31,7 @@ const levels = [
       <p>Entre la clé (1 mot).</p>
     `,
     answer: "amoureux",
+    afterImage: "assets/1000010633.png"
   },
   {
     title: "Niveau 3 — Le rêve ultime 🐴⛰️",
@@ -38,6 +44,7 @@ const levels = [
       <p>Entre la clé (1 mot).</p>
     `,
     answer: "ranch",
+    afterImage: "assets/1000010632.png"
   },
   {
     title: "Niveau 4 — Le grand choix 🌴 vs ☘️",
@@ -49,8 +56,8 @@ const levels = [
       </p>
       <p>Entre la clé (1 mot).</p>
     `,
-    // On accepte plusieurs variantes pour éviter qu'elle se fasse bloquer
-    answer: ["reunion", "la reunion", "réunion", "la réunion"],
+    answer: ["reunion", "la reunion", "réunion", "la réunion"]
+    // (pas d'afterImage ici, tu peux en ajouter si tu veux)
   },
   {
     title: "🎉 Trésor trouvé !",
@@ -59,11 +66,7 @@ const levels = [
       <p><b>BRAVO Camille</b> 🏆</p>
       <p>Tu as terminé la chasse au trésor version Irlande ☘️</p>
       <p class="hint">
-        Message final :<br>
         <b>“Ranch en Irlande… mais la Réunion gagne (pour le mioche).”</b> 😄
-      </p>
-      <p style="margin-top:14px" class="muted">
-        (Tu peux remplacer ce message final par une image/gif si tu veux.)
       </p>
       <div class="row" style="margin-top:16px">
         <button id="restart">Recommencer</button>
@@ -79,9 +82,30 @@ function normalize(s){
   return (s || "")
     .trim()
     .toLowerCase()
-    // simplif accents (basic)
     .normalize("NFD")
     .replace(/[\u0300-\u036f]/g, "");
+}
+
+function showOverlayImage(src, ms = OVERLAY_MS){
+  return new Promise((resolve) => {
+    if(!src) return resolve();
+
+    const ov = document.createElement("div");
+    ov.className = "overlay";
+    ov.innerHTML = `<img src="${src}" alt="image étape">`;
+    document.body.appendChild(ov);
+
+    // Clic pour fermer plus vite (optionnel)
+    ov.addEventListener("click", () => {
+      ov.remove();
+      resolve();
+    });
+
+    setTimeout(() => {
+      if(document.body.contains(ov)) ov.remove();
+      resolve();
+    }, ms);
+  });
 }
 
 function render(){
@@ -93,7 +117,12 @@ function render(){
 
   const title = `<h2 style="margin:0 0 6px 0">${lvl.title}</h2>`;
   const badge = `<div class="badge">${lvl.badge}</div>`;
-  const body = `<div style="margin-top:12px">${lvl.text}</div>`;
+
+  const permanentImg = lvl.permanentImage
+    ? `<img src="${lvl.permanentImage}" class="stepimg persist" alt="Image permanente">`
+    : "";
+
+  const body = `<div style="margin-top:12px">${permanentImg}${lvl.text}</div>`;
 
   if (lvl.final) {
     screen.innerHTML = `${title}${badge}${body}`;
@@ -123,7 +152,7 @@ function render(){
   const expectedList = Array.isArray(lvl.answer) ? lvl.answer : [lvl.answer];
   const expectedNorm = expectedList.map(normalize);
 
-  function check(){
+  async function check(){
     const got = normalize(input.value);
 
     if(!got){
@@ -134,7 +163,12 @@ function render(){
     if(expectedNorm.includes(got)){
       msg.textContent = "✅ Correct !";
       msg.className = "msg ok";
-      setTimeout(() => { current++; render(); }, 450);
+
+      // Image plein écran après réussite (si définie)
+      await showOverlayImage(lvl.afterImage);
+
+      current++;
+      render();
     } else {
       msg.textContent = "❌ Nope. Réessaie 😈";
       msg.className = "msg no";
